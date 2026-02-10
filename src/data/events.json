@@ -1,0 +1,176 @@
+[
+    {
+        "year": "2025",
+        "items": [
+            {
+                "id": "bottle-drive-2025",
+                "title": "NYS Bottle Drive",
+                "date": "March 30, 2025",
+                "description": "NYS hosted a bottle drive on Sunday, March 30, 2025, from 10:00 AM to 2:00 PM to support the Peace Arch Hospital Foundation. Participants donated empty bottles and cans by leaving them at the curb or dropping them off at a Return-It Express site.",
+                "image": "/assets/events/bottle-drive-2025.jpg",
+                "hasPhotos": false,
+                "hasArticle": false,
+                "layout": "image-left"
+            },
+            {
+                "id": "annual-conference-2024",
+                "title": "NYS Annual Conference",
+                "date": "December 18, 2024",
+                "description": "On December 18, 2024, NYS celebrated its 2024 achievements with its Annual Conference, starting with a $2,000 donation to the Peace Arch Hospital Foundation for its production kitchen project. President Solenn Sun highlighted the year's accomplishments, while the Foundation recognized volunteers with certificates.",
+                "image": "/assets/events/annual-conference.jpg",
+                "hasPhotos": true,
+                "hasArticle": true,
+                "layout": "text-left"
+            }
+        ]
+    },
+    {
+        "year": "2024",
+        "items": [
+            {
+                "id": "christmas-jazz-2024",
+                "title": "NYS Christmas Jazz Concert at Peace Arch Senior Village",
+                "date": "December 23, 2024",
+                "description": "NYS hosted its annual Christmas Jazz Concert at Peace Portal Senior Village, bringing holiday cheer to senior residents. Featuring talented musicians performing holiday classics and jazz standards, the event created a lively, festive atmosphere.",
+                "image": "/assets/events/jazz-concert.jpg",
+                "hasPhotos": true,
+                "hasArticle": true,
+                "layout": "image-left"
+            },
+            {
+                "id": "charity-flea-market-2024",
+                "title": "Charity Flea Market Supporting Peace Arch Hospital Foundation",
+                "date": "November 9, 2024",
+                "description": "NYS and EcoStyle hosted a Charity Flea Market at the South Surrey Community Centre, raising over $1,000 for the Peace Arch Foundation. With 20+ vendors, live music, and nearly 500 attendees, the event promoted sustainable living.",
+                "image": "/assets/events/flea-market.jpg",
+                "hasPhotos": true,
+                "hasArticle": true,
+                "layout": "text-left"
+            },
+            {
+                "id": "ubc-business-competition",
+                "title": "UBC Youth Business Competition",
+                "date": "August 17, 2024",
+                "description": "On August 17, Amy and James, two NYS members helped volunteer for the event.",
+                "image": "/assets/events/ubc-competition.jpg",
+                "hasPhotos": true,
+                "hasArticle": false,
+                "layout": "text-left"
+            },
+            {
+                "id": "peace-arch-70th",
+                "title": "Peace Arch Hospital 70th Birthday Celebration",
+                "date": "August 25, 2024",
+                "description": "NYS volunteers joined the Peace Arch Hospital 70th Birthday Celebration. They had a DIY tie-dye stand to help raise funds for the 10 million goal for Medical Imaging at Peace Arch Hospital!",
+                "image": null,
+                "hasPhotos": true,
+                "hasArticle": false,
+                "layout": "text-right"
+            },
+            {
+                "id": "diy-tie-dye",
+                "title": "DIY Tie-Dye Fundraiser",
+                "date": "July 1, 2024",
+                "description": "NYS Volunteers hosted a DIY Tie-Dye fundraiser to benefit Peace Arch Hospital Foundation at Crescent Beach.",
+                "image": null,
+                "hasPhotos": true,
+                "hasArticle": false,
+                "layout": "text-left"
+            },
+            {
+                "id": "tedx-grandview",
+                "title": "TEDx Grandview Heights Volunteers",
+                "date": "June 28, 2024",
+                "description": "NYS Volunteers worked at TEDx-Grandview Heights at Surrey Arts Centre.",
+                "image": null,
+                "hasPhotos": true,
+                "hasArticle": false,
+                "layout": "text-left"
+            },
+            {
+                "id": "urban-planning",
+                "title": "Volunteering for a urban planning workshop",
+                "date": "May 26, 2024",
+                "description": "NYS provided volunteer service to an urban planning workshop at Semiahmoo Library. Our volunteers are busy preparing hand-made candles, home-grown vegetables and bakery for our Green Home Gift Pack Sale at the event!",
+                "image": null,
+                "hasPhotos": true,
+                "hasArticle": false,
+                "layout": "text-right"
+            },
+            {
+                "id": "richmond-donut",
+                "title": "Richmond Hospital Donut Fundraiser",
+                "date": "April 2022",
+                "description": "In April 2022, NYS organized a donut fundraiser for Richmond Hospital Foundation. 12 volunteers, 180 donuts sold within the two days, 200 dollars profits for donation, and numerous commendations...",
+                "image": null,
+                "hasPhotos": false,
+                "hasArticle": false,
+                "layout": "text-left"
+            }
+        ]
+    },
+    {
+        "year": "2022",
+        "items": [
+            {
+                "id": "christmas-cards-2021",
+                "title": "Christmas Cards For Seniors 2021",
+                "date": "December 24, 2021",
+                "description": "On the Christmas Eve of 2021, we delivered 110 Christmas cards to senior activity centres and retirement homes across Vancouver. Click the button for more information on the event.",
+                "image": null,
+                "hasPhotos": true,
+                "hasArticle": false,
+                "layout": "text-right"
+            }
+        ]
+    },
+    {
+        "year": "2021",
+        "items": [
+            {
+                "id": "west-van-branch",
+                "title": "West Vancouver Branch Established",
+                "date": "2019",
+                "description": "In 2019, we started another Noble Youth Society branch in West Vancouver. Check out moments from our opening ceremony!",
+                "image": null,
+                "hasPhotos": true,
+                "hasArticle": false,
+                "layout": "text-left"
+            }
+        ]
+    },
+    {
+        "year": "2019",
+        "items": [
+            {
+                "id": "foodie-club-2",
+                "title": "Foodie Club Season II",
+                "date": "2018",
+                "description": "In 2018, we held our second Foodie Club event, \"Golden spoon\". Click to see the photo gallery for this event.",
+                "image": null,
+                "hasPhotos": true,
+                "hasArticle": false,
+                "layout": "text-right"
+            }
+        ]
+    },
+    {
+        "year": "2018",
+        "items": [
+            {
+                "id": "foodie-club-1",
+                "title": "Foodie Club",
+                "date": "2017",
+                "description": "In 2017, we held our first Foodie Club event \"little chef\". Check out for more!",
+                "image": null,
+                "hasPhotos": true,
+                "hasArticle": false,
+                "layout": "text-left"
+            }
+        ]
+    },
+    {
+        "year": "2017",
+        "items": []
+    }
+]

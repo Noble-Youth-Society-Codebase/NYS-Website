@@ -1,0 +1,801 @@
+:root {
+  --color-primary: #000000;
+  --color-secondary: #ffffff;
+  --color-accent-purple: #7c3aed;
+  --color-accent-blue: #2563eb;
+  --color-accent-green: #407955;
+  /* Approximate deep green from design */
+  --font-family-sans: 'Inter', system-ui, Avenir, Helvetica, Arial, sans-serif;
+  --spacing-sm: 0.5rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 2rem;
+  --spacing-xl: 4rem;
+}
+
+/* ... existing styles ... */
+
+.chat-widget-btn:hover {
+  transform: translateY(-2px);
+}
+
+/* Events Page Styles */
+.events-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: var(--spacing-xl) var(--spacing-md);
+  background-color: white;
+}
+
+.events-year-section {
+  margin-bottom: var(--spacing-xl);
+}
+
+.year-header {
+  font-size: 3rem;
+  font-weight: 400;
+  text-align: right;
+  margin-bottom: var(--spacing-lg);
+  color: black;
+}
+
+.year-events-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xl);
+}
+
+.event-item {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-lg);
+  align-items: center;
+}
+
+@media (min-width: 768px) {
+  .event-item {
+    flex-direction: row;
+    gap: var(--spacing-xl);
+    align-items: flex-start;
+  }
+
+  /* Layout variations */
+  .event-item.layout-visual-left {
+    flex-direction: row;
+  }
+
+  .event-item.layout-text-left {
+    flex-direction: row-reverse;
+  }
+}
+
+.event-visual-col,
+.event-text-col {
+  flex: 1;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.event-image {
+  width: 100%;
+  height: auto;
+  border-radius: 4px;
+  /* Slight rounding if needed, or sharp */
+  border: 1px solid #407955;
+  /* Optional frame or just standalone */
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  border: 2px solid var(--color-accent-green);
+  padding: 4px;
+  border-radius: 8px;
+}
+
+/* Title Boxes */
+.event-title-box {
+  background-color: var(--color-accent-green);
+  padding: var(--spacing-md) var(--spacing-lg);
+  color: white;
+  margin-bottom: var(--spacing-md);
+  width: 100%;
+}
+
+.event-title-box h3 {
+  font-size: 1.5rem;
+  font-weight: 500;
+  margin: 0;
+  line-height: 1.3;
+}
+
+.event-title-box-large {
+  background-color: var(--color-accent-green);
+  padding: var(--spacing-lg);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  min-height: 200px;
+  /* Make it substantial like a visual anchor */
+}
+
+.event-title-box-large h3 {
+  font-size: 2rem;
+  font-weight: 500;
+  margin: 0;
+}
+
+/* Description & Buttons */
+.event-description-wrapper {
+  color: #333;
+  font-size: 1rem;
+  line-height: 1.7;
+}
+
+.event-description-wrapper p {
+  margin-bottom: var(--spacing-md);
+}
+
+.event-buttons {
+  display: flex;
+  gap: var(--spacing-md);
+  margin-top: var(--spacing-sm);
+  justify-content: flex-end;
+  /* Buttons align right usually under text? Or generic? */
+}
+
+/* Align buttons based on column content? Actually design shows them floating sometimes. 
+   Let's keep them left or right context dependent.
+   In text-left layout, text is on left, buttons usually under text.
+*/
+.layout-text-left .event-text-col .event-buttons,
+.layout-text-left .event-description-wrapper .event-buttons {
+  justify-content: flex-start;
+  /* or flex-end? */
+}
+
+/* The design shows buttons often centered or aligned. Let's stick to start for now. */
+.event-buttons {
+  justify-content: flex-start;
+}
+
+.btn-green {
+  background-color: var(--color-accent-green);
+  color: white;
+  padding: 8px 16px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  border: none;
+  transition: opacity 0.2s;
+}
+
+.btn-green:hover {
+  opacity: 0.9;
+}
+
+.event-divider {
+  width: 100%;
+  height: 2px;
+  background-color: black;
+  margin-top: var(--spacing-lg);
+  display: block;
+}
+
+/* Specific adjustment: In the design, some text blocks form a horizontal line with the visual. */
+/* The dividers seem to separate events. */
+
+/* Typography adjustments to match image better */
+.event-date-text {
+  font-size: 0.9rem;
+  color: #555;
+  margin-bottom: 0.5rem;
+}
+
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-family-sans);
+  line-height: 1.6;
+  color: var(--color-primary);
+  background-color: var(--color-secondary);
+  overflow-x: hidden;
+}
+
+/* Header Styles */
+.nys-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: var(--spacing-lg) 0;
+  background-color: white;
+  width: 100%;
+}
+
+.header-top {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-md);
+  margin-bottom: var(--spacing-md);
+  width: 100%;
+  justify-content: center;
+}
+
+@media (min-width: 768px) {
+  .header-top {
+    flex-direction: row;
+    gap: var(--spacing-lg);
+  }
+}
+
+.logo-wrapper {
+  width: 60px;
+  height: 60px;
+}
+
+.nys-logo-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.title-wrapper {
+  text-align: center;
+}
+
+.logo-text-large {
+  font-size: 1.8rem;
+  font-weight: 400;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.header-divider {
+  width: 60%;
+  height: 1px;
+  background-color: black;
+  margin-bottom: var(--spacing-md);
+}
+
+.nys-nav {
+  width: 100%;
+}
+
+.nys-nav ul {
+  display: flex;
+  gap: var(--spacing-lg);
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.nys-nav a {
+  font-size: 0.9rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: black;
+  letter-spacing: 0.05em;
+}
+
+.nys-nav a:hover {
+  text-decoration: underline;
+  color: var(--color-accent-blue);
+}
+
+/* Hero Styles */
+.nys-hero {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-height: 600px;
+  overflow: hidden;
+}
+
+@media (min-width: 992px) {
+  .nys-hero {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+}
+
+.hero-content-wrapper {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  position: relative;
+  z-index: 2;
+}
+
+@media (min-width: 992px) {
+  .hero-content-wrapper {
+    flex-direction: row;
+    align-items: center;
+    padding: var(--spacing-xl);
+    gap: var(--spacing-xl);
+  }
+}
+
+.hero-image-container {
+  flex: 1;
+  min-height: 300px;
+  background-color: #ddd;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.image-placeholder {
+  color: #666;
+  font-style: italic;
+}
+
+.hero-text-container {
+  flex: 1;
+  background-color: white;
+  padding: var(--spacing-xl);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-lg);
+  justify-content: center;
+  box-shadow: -20px 20px 60px rgba(0, 0, 0, 0.05);
+}
+
+.hero-text-container h1 {
+  font-size: 3rem;
+  font-weight: 400;
+}
+
+.hero-text-container p {
+  color: #4b5563;
+  max-width: 60ch;
+}
+
+.btn-primary {
+  background-color: #1f2937;
+  color: white;
+  padding: 12px 24px;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  width: fit-content;
+  transition: transform 0.2s, background-color 0.2s;
+}
+
+.btn-primary:hover {
+  background-color: black;
+  transform: translateY(-2px);
+}
+
+.hero-background-decoration {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(135deg, #a78bfa 0%, #c4b5fd 100%);
+  z-index: 1;
+  clip-path: polygon(0 0, 100% 0, 80% 100%, 0% 100%);
+}
+
+@media (max-width: 991px) {
+  .hero-background-decoration {
+    width: 100%;
+    height: 300px;
+    clip-path: none;
+  }
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: color 0.3s ease;
+}
+
+ul {
+  list-style: none;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  font-family: inherit;
+}
+
+/* Content Section */
+.nys-content {
+  padding: var(--spacing-xl);
+  display: flex;
+  justify-content: center;
+  background-color: white;
+}
+
+.content-image-placeholder {
+  width: 100%;
+  max-width: 800px;
+  height: 400px;
+  background-color: #eee;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  color: #888;
+}
+
+/* Contact Section */
+.nys-contact {
+  padding: var(--spacing-xl);
+  background-color: white;
+  display: flex;
+  justify-content: center;
+}
+
+.contact-wrapper {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 1000px;
+  gap: var(--spacing-xl);
+}
+
+@media (min-width: 768px) {
+  .contact-wrapper {
+    flex-direction: row;
+  }
+}
+
+.contact-header {
+  flex: 1;
+}
+
+.contact-header h2 {
+  font-size: 2rem;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-top: 0;
+}
+
+.contact-form-container {
+  flex: 2;
+}
+
+.nys-form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-lg);
+}
+
+.form-row {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-lg);
+}
+
+@media (min-width: 768px) {
+  .form-row {
+    flex-direction: row;
+    gap: var(--spacing-xl);
+  }
+}
+
+.form-group {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label {
+  font-size: 0.8rem;
+  margin-bottom: 0.5rem;
+  color: #555;
+  font-weight: 500;
+}
+
+.form-group input,
+.form-group textarea {
+  border: none;
+  border-bottom: 1px solid #ccc;
+  padding: 0.5rem 0;
+  font-family: inherit;
+  font-size: 1rem;
+  outline: none;
+  transition: border-color 0.3s;
+  background: transparent;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  border-bottom-color: black;
+}
+
+.btn-submit {
+  background-color: black;
+  color: white;
+  padding: 12px 0;
+  text-transform: uppercase;
+  font-weight: 600;
+  margin-top: var(--spacing-md);
+  transition: opacity 0.3s;
+  width: 100%;
+  border-radius: 0;
+}
+
+.btn-submit:hover {
+  opacity: 0.8;
+}
+
+/* Footer Section */
+.nys-footer {
+  padding: var(--spacing-xl) var(--spacing-md);
+  border-top: 1px solid #eee;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  background-color: white;
+}
+
+.footer-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-md);
+}
+
+.logo-wrapper-small {
+  width: 40px;
+  height: 40px;
+}
+
+.nys-logo-img-small {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.footer-info h3 {
+  margin-bottom: 0.5rem;
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+
+.footer-info p {
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.social-icon {
+  margin: var(--spacing-md) 0;
+  display: inline-block;
+}
+
+
+.chat-widget-btn:hover {
+  transform: translateY(-2px);
+}
+
+/* Upcoming Events Styles */
+.event-title-box-red {
+  background-color: #ef4444;
+  /* Bright red/pinkish */
+  background: linear-gradient(to right, #f87171, #ef4444);
+  padding: var(--spacing-md) var(--spacing-lg);
+  color: white;
+  margin-bottom: var(--spacing-md);
+  width: 100%;
+}
+
+.event-title-box-red h3 {
+  font-size: 1.5rem;
+  font-weight: 500;
+  margin: 0;
+  line-height: 1.3;
+}
+
+.coming-soon-section {
+  text-align: center;
+  margin-top: var(--spacing-xl);
+  padding: var(--spacing-xl) 0;
+}
+
+
+/* Join Us Page Styles */
+.join-hero {
+  width: 100%;
+  height: 60vh;
+  min-height: 400px;
+  background-image: url('https://images.unsplash.com/photo-1498429152472-9a433d9ddf3b?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3');
+  /* Placeholder mountain image */
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+/* Overlay to ensure text/button readability if needed, though design looks clean */
+.join-hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.1);
+}
+
+.join-content-container {
+  z-index: 1;
+}
+
+.btn-enroll {
+  background-color: white;
+  color: #a07d6a;
+  /* Brownish color from screenshot text */
+  padding: 20px 60px;
+  border-radius: 50px;
+  /* Pill shape */
+  font-size: 1.2rem;
+  font-weight: 500;
+  text-decoration: none;
+  border: 1px solid #8b7355;
+  /* Thin brown border */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  display: inline-block;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.btn-enroll:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  color: #8b7355;
+  text-decoration: none;
+}
+
+/* Members Page Styles */
+.nys-members {
+  max-width: 100%;
+  /* Fill screen width */
+  margin: 0 auto;
+  padding: var(--spacing-xl) var(--spacing-md);
+  background-color: white;
+}
+
+.members-header {
+  text-align: center;
+  margin-bottom: var(--spacing-xl);
+}
+
+.members-header h2 {
+  font-size: 3rem;
+  font-weight: 400;
+  margin-bottom: var(--spacing-sm);
+}
+
+.members-subtitle {
+  font-size: 1rem;
+  color: #333;
+  margin-bottom: var(--spacing-md);
+}
+
+.members-description {
+  max-width: 700px;
+  margin: 0 auto;
+  font-size: 0.9rem;
+  color: #666;
+  line-height: 1.5;
+}
+
+.members-list {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--spacing-lg);
+  justify-content: center;
+}
+
+@media (min-width: 900px) {
+  .members-list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+
+.member-card {
+  display: flex;
+  flex-direction: column;
+  background-color: #f3f4f6;
+  /* Light grey */
+  padding: var(--spacing-lg);
+  gap: var(--spacing-lg);
+  align-items: center;
+  text-align: center;
+  height: 100%;
+  border-radius: 8px;
+  transition: transform 0.2s;
+}
+
+@media (min-width: 768px) {
+  .member-card {
+    flex-direction: row;
+    align-items: flex-start;
+    text-align: left;
+  }
+}
+
+.member-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+.member-image-container {
+  width: 100%;
+  max-width: 100%;
+  aspect-ratio: 1/1;
+  overflow: hidden;
+  border-radius: 8px;
+  margin-bottom: var(--spacing-sm);
+  flex-shrink: 0;
+}
+
+@media (min-width: 768px) {
+  .member-image-container {
+    width: 200px;
+    margin-bottom: 0;
+  }
+}
+
+.member-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+}
+
+.member-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+@media (min-width: 768px) {
+  .member-info {
+    align-items: flex-start;
+  }
+}
+
+.member-role {
+  font-size: 0.8rem;
+  color: #666;
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+  display: block;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+}
+
+.member-name {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: var(--spacing-md);
+  color: #111;
+}
+
+.member-bio {
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: #444;
+}
