@@ -1,0 +1,2 @@
+# Optional Wix extraction only; normal builds need no packages.
+beautifulsoup4

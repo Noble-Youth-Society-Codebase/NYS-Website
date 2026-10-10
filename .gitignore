@@ -1,0 +1,9 @@
+construction/reference/
+__pycache__/
+*.py[cod]
+.venv/
+.env
+.env.*
+*.zip
+.DS_Store
+Thumbs.db
