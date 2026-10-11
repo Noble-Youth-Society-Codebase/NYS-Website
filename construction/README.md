@@ -9,6 +9,7 @@ The deployable website is `../dist/`.
 - `assets/site.js`: navigation, gallery, photo viewer, search, contact draft preview.
 - `scripts/build_site.py`: generates HTML/data and copies CSS/JS.
 - `scripts/check_site.py`: checks links, fragments, assets, and member preservation.
+- `scripts/package_amplify.py`: rebuilds, checks, and creates the upload-ready `../nys-amplify.zip` for AWS Amplify drag-and-drop deployment.
 
 Run these scripts from the repository root. They also resolve their file paths correctly when invoked from another working directory.
 

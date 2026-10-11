@@ -4,6 +4,8 @@ Portable HTML, CSS, and JavaScript recreation of the owner-authorized [Noble You
 
 **Deploy only `dist/`. Edit and rebuild from `construction/`.**
 
+For AWS Amplify drag-and-drop deployment, run `python construction/scripts/package_amplify.py` and upload the generated `nys-amplify.zip`.
+
 ## Repository layout
 
 | Path | Purpose | Deploy? |
@@ -60,6 +62,16 @@ python construction/scripts/check_site.py
 The regular build uses only Python's standard library. It generates HTML and runtime data, and copies source CSS/JS into `dist/assets/`. Generated files and copied assets in `dist/` will be overwritten by builds. Local images, fonts, and video stay in `dist/assets/` and are tracked in Git. Add new media there and reference an `assets/...` path in the content file.
 
 ## Deploy
+
+### AWS Amplify drag and drop
+
+```sh
+python construction/scripts/package_amplify.py
+```
+
+This rebuilds and checks the site, then creates `nys-amplify.zip` with `index.html` at the archive root and all media included. In the AWS Amplify console, choose **Create new app → Deploy without Git**, select **Drag and drop**, upload that ZIP, and choose **Save and deploy**. Re-run the command to package future updates. See [deployment instructions](docs/DEPLOYMENT.md) for the full workflow.
+
+### GitHub Pages
 
 Commit the repository files directly: `dist/`, `construction/`, `docs/`, `.github/`, `README.md`, `.gitignore`, and `.gitattributes`. Captured Wix HTML in `construction/reference/` stays local and is ignored by Git.
 
