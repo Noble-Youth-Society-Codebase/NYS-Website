@@ -24,19 +24,23 @@ Upload `nys-amplify.zip`, rather than a ZIP of the repository or a ZIP containin
 
 The site has separate HTML pages and directory aliases. Keep these files together and do not add a catch-all **200** rewrite to `/index.html`; that would hide the other pages. After deploying, check the homepage, `/our-members.html`, `/our-members/`, `/past-events.html`, and `/join-us.html`, including images and enrollment video playback.
 
-## GitHub Pages
+## AWS Amplify from GitHub
 
 1. Push the full repository to GitHub, including the hidden `.github` folder.
-2. Use `main` as the deployment branch, or change both branch filters in `.github/workflows/pages.yml`.
-3. Select **Settings → Pages → Build and deployment → Source → GitHub Actions**.
-4. Push a change to `main`, or choose **Actions → Check and deploy website → Run workflow**.
-5. Open the deployment URL shown in the successful workflow or Pages settings.
+2. Open the [AWS Amplify console](https://console.aws.amazon.com/amplify/) and choose **Create new app → GitHub**.
+3. Authorize GitHub repository access, select `Noble-Youth-Society-Codebase/NYS-Website`, and choose the `main` branch.
+4. Confirm the build settings use the root `amplify.yml` and publish directory `dist`. Use the default Amazon Linux 2023 build image, which includes Python 3.11.
+5. Choose **Save and deploy**, then open the generated `amplifyapp.com` URL when deployment succeeds.
 
-The build job generates and validates the static site. The deploy job publishes only the `dist/` artifact to the `github-pages` environment. Pull requests run checks without publishing. Branch/environment rules must allow deployment.
+The root `amplify.yml` selects Python 3.11, runs `build_site.py` and `check_site.py`, and publishes all files under `dist/`. No package installation or backend is needed. Future pushes to the connected branch automatically trigger Amplify builds and deployments. See [AWS build settings documentation](https://docs.aws.amazon.com/amplify/latest/userguide/build-settings.html).
 
-Site links and asset references are relative, so they work under repository URLs such as `https://USERNAME.github.io/REPOSITORY/` without base URL changes.
+GitHub Actions runs `.github/workflows/check.yml` to build and validate pushes and pull requests to `main`. This workflow does not deploy; Amplify handles hosting separately. Change both workflow branch filters if you use a different branch for checks.
 
-Configuration follows [GitHub's custom Pages workflow documentation](https://docs.github.com/en/pages/getting-started-with-github-pages/using-custom-workflows-with-github-pages).
+### "Get Pages site failed" in GitHub Actions
+
+This error comes from a GitHub Pages deployment action attempting to access a Pages site that has not been enabled. The old `pages.yml` workflow deployed to GitHub Pages; it has been replaced with build and validation checks for the Amplify workflow. Commit and push the workflow replacement and `amplify.yml`, then inspect the new **Check website** run. Re-running the previous failed run uses the old workflow and will not apply this fix.
+
+GitHub Pages settings are not required for Amplify hosting. If you choose GitHub Pages as a separate host later, enable **Settings → Pages → Source → GitHub Actions** and add a Pages deployment workflow following [GitHub's instructions](https://docs.github.com/en/pages/getting-started-with-github-pages/using-custom-workflows-with-github-pages).
 
 ## Other static hosts
 

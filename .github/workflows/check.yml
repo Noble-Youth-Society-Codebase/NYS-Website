@@ -1,0 +1,21 @@
+name: Check website
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: checks-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - name: Build website
+        run: python3 construction/scripts/build_site.py
+      - name: Check links and assets
+        run: python3 construction/scripts/check_site.py

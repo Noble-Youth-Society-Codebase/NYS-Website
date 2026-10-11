@@ -16,14 +16,16 @@ For AWS Amplify drag-and-drop deployment, run `python construction/scripts/packa
 | `construction/scripts/` | Build, validation, and optional migration tools | No |
 | `construction/reference/` | Captured public Wix source; local only, ignored by Git | No |
 | `docs/` | Deployment guide and migration notes | No |
-| `.github/workflows/pages.yml` | GitHub Pages deployment workflow | No |
+| `.github/workflows/check.yml` | GitHub Actions build and validation workflow | No |
+| `amplify.yml` | AWS Amplify build and publish settings for GitHub deployment | No |
 
 ```text
 .
 ├── README.md
 ├── .gitignore
 ├── .gitattributes
-├── .github/workflows/pages.yml
+├── .github/workflows/check.yml
+├── amplify.yml
 ├── dist/                         ← DEPLOY THESE FILES
 │   ├── index.html
 │   ├── our-members.html
@@ -71,11 +73,13 @@ python construction/scripts/package_amplify.py
 
 This rebuilds and checks the site, then creates `nys-amplify.zip` with `index.html` at the archive root and all media included. In the AWS Amplify console, choose **Create new app → Deploy without Git**, select **Drag and drop**, upload that ZIP, and choose **Save and deploy**. Re-run the command to package future updates. See [deployment instructions](docs/DEPLOYMENT.md) for the full workflow.
 
-### GitHub Pages
+### AWS Amplify from GitHub
 
 Commit the repository files directly: `dist/`, `construction/`, `docs/`, `.github/`, `README.md`, `.gitignore`, and `.gitattributes`. Captured Wix HTML in `construction/reference/` stays local and is ignored by Git.
 
-Push this repository to GitHub, then select **Settings → Pages → Source → GitHub Actions**. The included workflow builds, checks, and publishes only `dist/` on pushes to `main`; pull requests run checks without deploying. See [deployment instructions](docs/DEPLOYMENT.md) for branch setup and other static hosts.
+In AWS Amplify, choose **Create new app → GitHub**, authorize repository access, select this repository and the `main` branch, then **Save and deploy**. The root `amplify.yml` selects Python 3.11, builds and checks the site, and publishes only `dist/`. Amplify automatically deploys future pushes to the connected branch.
+
+GitHub Actions independently builds and checks pushes and pull requests to `main`. GitHub Pages does not need to be enabled. See [deployment instructions](docs/DEPLOYMENT.md) for setup and troubleshooting.
 
 
 ## Included

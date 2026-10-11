@@ -1,0 +1,14 @@
+version: 1
+frontend:
+  phases:
+    preBuild:
+      commands:
+        - pyenv global 3.11
+    build:
+      commands:
+        - python construction/scripts/build_site.py
+        - python construction/scripts/check_site.py
+  artifacts:
+    baseDirectory: dist
+    files:
+      - '**/*'
