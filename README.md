@@ -56,6 +56,8 @@ Open [http://127.0.0.1:8787/](http://127.0.0.1:8787/). Stop the server with Ctrl
 
 Edit `construction/content.json` for text, profiles, events, and links. Edit CSS and browser behavior in `construction/assets/`. To change page structure, edit `construction/scripts/build_site.py`.
 
+Do not edit page content directly in `dist/`: Amplify rebuilds from `construction/` on every deployment and replaces those edits. Keep member biographies and grades in `construction/content.json`, then rebuild both the pages and search data.
+
 ```sh
 python construction/scripts/build_site.py
 python construction/scripts/check_site.py
